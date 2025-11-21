@@ -1,86 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Educoin — Dashboard</title>
-<link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-<div class="app">
-<aside class="sidebar">
-<div class="logo">E</div>
-<nav>
-<button class="nav-btn active">🏠</button>
-<button class="nav-btn">📊</button>
-<button class="nav-btn">🏪</button>
-<button class="nav-btn">⚙️</button>
-</nav>
-</aside>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Educoin</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <img src="assets/img/Logo-03.png" alt="Educoin Logo" class="logo-nav" />
+        <nav>
+          <button class="tab active">🏠</button>
+          <button class="tab">📊</button>
+          <button class="tab">🏪</button>
+          <button class="tab">⚙️</button>
+        </nav>
+      </aside>
 
+      <main class="main">
+        <header class="topbar">
+          <div class="search"><input placeholder="Buscar..." /></div>
+          <div class="top-actions">
+            <div class="date">3 de Agosto, 2021</div>
+            <div class="profile">Sophia ▾</div>
+          </div>
+        </header>
 
-<main class="main">
-<header class="topbar">
-<div class="search"> <input placeholder="Buscar..." /></div>
-<div class="top-actions">
-<div class="date">3 de Agosto, 2021</div>
-<div class="profile">Sophia ▾</div>
-</div>
-</header>
+        <section class="welcome card">
+          <div class="welcome-left">
+            <h1>¡Hola, George!</h1>
+            <p>¿Qué quieres hacer hoy?</p>
+            <div class="quicklinks">
+              <a href="#">Ver saldo</a>
+              <a href="#">Recompensas</a>
+              <a href="#">Emitir</a>
+            </div>
+          </div>
+          <div class="mascot">
+            <img src="assets/Edu/book.png" alt="Educoin Mascot" />
+          </div>
+        </section>
 
+        <section class="cards-grid">
+          <div class="small-card">
+            <div class="label">Saldo actual</div>
+            <div class="value" id="balance">— EDU</div>
+          </div>
+          <div class="small-card">
+            <div class="label">Valor de 1 EDU</div>
+            <div class="value" id="valueIndex">—</div>
+          </div>
+          <div class="small-card">
+            <div class="label">Recompensas</div>
+            <div class="value" id="rewardsCount">—</div>
+          </div>
+          <div class="small-card">
+            <div class="label">Transacciones</div>
+            <div class="value" id="txCount">—</div>
+          </div>
+        </section>
+      </main>
+    </div>
 
-<section class="welcome card">
-<div class="welcome-left">
-<h1>¡Hola, George!</h1>
-<p>¿Qué quieres hacer hoy?</p>
-<div class="quicklinks">
-<a href="#">Ver saldo</a>
-<a href="#">Recompensas</a>
-<a href="#">Emitir</a>
-</div>
-</div>
-<div class="mascot">
-<!-- simple inline SVG mascot (puede reemplazarse por assets/img/mascot.svg) -->
-<svg width="160" height="160" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-<g transform="translate(10,10)">
-<circle cx="90" cy="80" r="48" fill="#fff" stroke="#e6edf7" stroke-width="4"/>
-<circle cx="60" cy="50" r="12" fill="#fff" stroke="#f6c6d6" stroke-width="3"/>
-<circle cx="120" cy="50" r="12" fill="#fff" stroke="#f6c6d6" stroke-width="3"/>
-<path d="M70 105 q20 12 40 0" stroke="#d0d0d0" fill="none" stroke-width="3" stroke-linecap="round"/>
-</g>
-</svg>
-</div>
-</section>
-
-
-<section class="cards-grid">
-  <div class="small-card">
-  <div class="label">Saldo actual</div>
-  <div class="value" id="balance">— EDU</div>
-  </div>
-  <div class="small-card">
-  <div class="label">Valor de 1 EDU</div>
-  <div class="value" id="valueIndex">—</div>
-  </div>
-  <div class="small-card">
-  <div class="label">Recompensas</div>
-  <div class="value" id="rewardsCount">—</div>
-  </div>
-  <div class="small-card">
-  <div class="label">Transacciones</div>
-  <div class="value" id="txCount">—</div>
-  </div>
-  </section>
-  
-  
-
-  
-  
-  </main>
-  </div>
-  
-  
-  <script src="js/app.js"></script>
+    <script src="js/app.js"></script>
   </body>
-
-  </html>
+</html>

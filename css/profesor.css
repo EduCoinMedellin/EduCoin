@@ -1,29 +1,138 @@
-:root{--bg:#f4f7fb;--card:#fff;--accent:#5b8def;--danger:#ff6b6b}
-*{box-sizing:border-box;font-family:Inter,system-ui,Arial}
-body{margin:0;background:var(--bg);color:#111}
-.panel{display:flex;flex-direction:column;min-height:100vh}
-.panel-header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:linear-gradient(90deg,#fff,#f9fbff);box-shadow:0 4px 18px rgba(2,6,23,0.04)}
-.brand{font-weight:700}
-.btn{padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
-.btn.ghost{background:transparent;border:1px solid rgba(15,23,42,0.06)}
-.btn.primary{background:var(--accent);color:white}
-.panel-body{display:flex;flex:1}
-.left{width:200px;border-right:1px solid rgba(15,23,42,0.04);padding:16px}
-.left nav{display:flex;flex-direction:column;gap:8px}
-.tab{padding:10px;border-radius:8px;border:none;text-align:left;background:transparent;cursor:pointer}
-.tab.active{background:rgba(91,141,239,0.08)}
-.content{flex:1;padding:20px}
-.tab-content{display:none}
-.tab-content.active{display:block}
-.card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 24px rgba(12,23,52,0.04);margin-bottom:12px}
-.form input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.06);margin-top:8px}
-.metrics-grid{display:flex;gap:12px}
-.metric{flex:1;background:linear-gradient(180deg,#fbfdff,#ffffff);padding:12px;border-radius:10px}
-.ledger-card table{width:100%;border-collapse:collapse}
-.ledger-card th, .ledger-card td{padding:8px;border-bottom:1px solid rgba(15,23,42,0.03);text-align:left}
-.row{display:flex;gap:8px;margin-top:12px}
-#alertsContainer .alert{padding:10px;border-radius:8px;margin-bottom:8px}
-#alertsContainer .alert.warn{background:#fff7e6}
-#alertsContainer .alert.danger{background:#fff0f0}
+:root {
+  --bg: #f1f5fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #5b8def;
+  --glass: rgba(230, 236, 249, 0.8);
+}
+* {
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #1f2937;
+}
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: linear-gradient(90deg, #fff, #f9fbff);
+  box-shadow: 0 4px 18px rgba(2, 6, 23, 0.04);
+}
+.brand {
+  font-weight: 700;
+}
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+.btn.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.sidebar {
+  width: 72px;
+  background: linear-gradient(180deg, #fff, #f7fafc);
+  border-right: 1px solid rgba(15, 23, 42, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+}
+.logo-nav {
+  width: 60px;
+}
+
+.left nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tab {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+.tab.active {
+  background: rgba(91, 141, 239, 0.08);
+}
+.content {
+  flex: 1;
+  padding: 20px;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+.card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(12, 23, 52, 0.04);
+  margin-bottom: 12px;
+}
+.form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  margin-top: 8px;
+}
+.metrics-grid {
+  display: flex;
+  gap: 12px;
+}
+.metric {
+  flex: 1;
+  background: linear-gradient(180deg, #fbfdff, #ffffff);
+  padding: 12px;
+  border-radius: 10px;
+}
+.ledger-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.ledger-card th,
+.ledger-card td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.03);
+  text-align: left;
+}
+.row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+#alertsContainer .alert {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+#alertsContainer .alert.warn {
+  background: #fff7e6;
+}
+#alertsContainer .alert.danger {
+  background: #fff0f0;
+}
 
 /* responsive */

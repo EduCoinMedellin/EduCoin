@@ -1,127 +1,158 @@
 <html lang="es">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Educoin — Panel Profesor</title>
-<link rel="stylesheet" href="css/profesor.css" />
-</head>
-<body>
-<div class="panel">
-<header class="panel-header">
-<div class="brand">Educoin — Panel Profesor</div>
-<div class="actions">
-<a class="btn" id="downloadReq" href="/mnt/data/Requerimientos.xlsx" download>Descargar Requerimientos</a>
-<button id="logout" class="btn ghost">Cerrar sesión</button>
-</div>
-</header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Educoin</title>
+    <link rel="stylesheet" href="css/profesor.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <img src="assets/img/Logo-03.png" alt="Educoin Logo" class="logo-nav" />
+        <nav>
+          <button class="tab active" data-tab="emision">Emisión</button>
+          <button class="tab" data-tab="politicas">Políticas</button>
+          <button class="tab" data-tab="ledger">Libro mayor</button>
+          <button class="tab" data-tab="alertas">Alertas</button>
+        </nav>
+      </aside>
 
+      <main class="panel-body">
+        <section class="content">
+          <section id="emision" class="tab-content active">
+            <h2>Emitir Educoins</h2>
+            <div class="card form">
+              <label>Monto a emitir</label>
+              <input
+                id="emitAmountProf"
+                type="number"
+                min="1"
+                placeholder="Cantidad"
+              />
+              <label>Motivo</label>
+              <input
+                id="emitReason"
+                type="text"
+                placeholder="Ej: Recompensa por torneo"
+              />
+              <div class="row">
+                <button id="emitProfBtn" class="btn primary">Emitir</button>
+                <button id="simulateBtn" class="btn ghost">
+                  Simular impacto
+                </button>
+              </div>
+            </div>
 
-<main class="panel-body">
-<aside class="left">
-<nav>
-<button class="tab active" data-tab="emision">Emisión</button>
-<button class="tab" data-tab="politicas">Políticas</button>
-<button class="tab" data-tab="ledger">Libro mayor</button>
-<button class="tab" data-tab="alertas">Alertas</button>
-</nav>
-</aside>
+            <section class="bottom">
+              <div class="left-panel card">
+                <h3>Panel de operaciones</h3>
+                <div class="controls">
+                  <label>Emitir Educoins (admin)</label>
+                  <div class="row">
+                    <input
+                      id="emitAmount"
+                      type="number"
+                      min="1"
+                      placeholder="Cantidad"
+                    />
+                    <button id="emitBtn">Emitir</button>
+                  </div>
 
+                  <label>Asignar a estudiante</label>
+                  <div class="row">
+                    <select id="studentSelect"></select>
+                    <input
+                      id="assignAmount"
+                      type="number"
+                      min="1"
+                      placeholder="Cantidad"
+                    />
+                    <button id="assignBtn">Asignar</button>
+                  </div>
 
-<section class="content">
-<section id="emision" class="tab-content active">
-<h2>Emitir Educoins</h2>
-<div class="card form">
-<label>Monto a emitir</label>
-<input id="emitAmountProf" type="number" min="1" placeholder="Cantidad" />
-<label>Motivo</label>
-<input id="emitReason" type="text" placeholder="Ej: Recompensa por torneo" />
-<div class="row">
-<button id="emitProfBtn" class="btn primary">Emitir</button>
-<button id="simulateBtn" class="btn ghost">Simular impacto</button>
-</div>
-</div>
+                  <label>Catálogo</label>
+                  <div id="catalog"></div>
+                </div>
+              </div>
 
-<section class="bottom">
-    <div class="left-panel card">
-    <h3>Panel de operaciones</h3>
-    <div class="controls">
-    <label>Emitir Educoins (admin)</label>
-    <div class="row">
-    <input id="emitAmount" type="number" min="1" placeholder="Cantidad" />
-    <button id="emitBtn">Emitir</button>
+              <div class="right-panel card">
+                <h3>Historial de transacciones</h3>
+                <div id="history" class="history"></div>
+              </div>
+            </section>
+
+            <div class="card metrics">
+              <h3>Métricas rápidas</h3>
+              <div class="metrics-grid">
+                <div class="metric">
+                  <div class="label">Oferta circulante</div>
+                  <div id="circulante">— EDU</div>
+                </div>
+                <div class="metric">
+                  <div class="label">Inflación (sim)</div>
+                  <div id="inflacion">— %</div>
+                </div>
+                <div class="metric">
+                  <div class="label">Índice valor</div>
+                  <div id="idx">—</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="politicas" class="tab-content">
+            <h2>Políticas de emisión</h2>
+            <div class="card">
+              <label>Tope mensual</label>
+              <input
+                id="capMonthly"
+                type="number"
+                min="0"
+                placeholder="ej. 1000"
+              />
+              <label>Coeficiente alfa</label>
+              <input
+                id="alpha"
+                type="number"
+                step="0.01"
+                min="0"
+                placeholder="ej. 0.5"
+              />
+              <div class="row">
+                <button id="savePolicy" class="btn primary">
+                  Guardar políticas
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section id="ledger" class="tab-content">
+            <h2>Libro mayor (transacciones)</h2>
+            <div class="card ledger-card">
+              <table id="ledgerTable">
+                <thead>
+                  <tr>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Detalle</th>
+                    <th>Monto</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <div class="row">
+                <button id="exportCsv" class="btn">Exportar CSV</button>
+              </div>
+            </div>
+          </section>
+
+          <section id="alertas" class="tab-content">
+            <h2>Alertas</h2>
+            <div id="alertsContainer"></div>
+          </section>
+        </section>
+      </main>
+      <script src="js/profesor.js"></script>
     </div>
-    
-    
-    <label>Asignar a estudiante</label>
-    <div class="row">
-    <select id="studentSelect"></select>
-    <input id="assignAmount" type="number" min="1" placeholder="Cantidad" />
-    <button id="assignBtn">Asignar</button>
-    </div>
-    
-    
-    <label>Catálogo</label>
-    <div id="catalog"></div>
-    </div>
-    </div>
-    
-    
-    <div class="right-panel card">
-    <h3>Historial de transacciones</h3>
-    <div id="history" class="history"></div>
-    </div>
-</section>
-
-
-<div class="card metrics">
-<h3>Métricas rápidas</h3>
-<div class="metrics-grid">
-<div class="metric"><div class="label">Oferta circulante</div><div id="circulante">— EDU</div></div>
-<div class="metric"><div class="label">Inflación (sim)</div><div id="inflacion">— %</div></div>
-<div class="metric"><div class="label">Índice valor</div><div id="idx">—</div></div>
-</div>
-</div>
-</section>
-
-
-<section id="politicas" class="tab-content">
-    <h2>Políticas de emisión</h2>
-    <div class="card">
-    <label>Tope mensual</label>
-    <input id="capMonthly" type="number" min="0" placeholder="ej. 1000" />
-    <label>Coeficiente alfa</label>
-    <input id="alpha" type="number" step="0.01" min="0" placeholder="ej. 0.5" />
-    <div class="row"><button id="savePolicy" class="btn primary">Guardar políticas</button></div>
-    </div>
-    </section>
-    
-    
-    <section id="ledger" class="tab-content">
-    <h2>Libro mayor (transacciones)</h2>
-    <div class="card ledger-card">
-    <table id="ledgerTable">
-    <thead><tr><th>Fecha</th><th>Tipo</th><th>Detalle</th><th>Monto</th></tr></thead>
-    <tbody></tbody>
-    </table>
-    <div class="row"><button id="exportCsv" class="btn">Exportar CSV</button></div>
-    </div>
-    </section>
-    
-    
-    <section id="alertas" class="tab-content">
-    <h2>Alertas</h2>
-    <div id="alertsContainer"></div>
-    </section>
-    
-    
-    </section>
-    </main>
-    
-    
-    <footer class="panel-footer">Panel de control — Educoin MVP</footer>
-    
-    
-    <script src="js/profesor.js"></script>
-    </div>
-    </body>
-    </html>
+  </body>
+</html>
