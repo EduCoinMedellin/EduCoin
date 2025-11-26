@@ -27,6 +27,11 @@ body {
   background: linear-gradient(90deg, #fff, #f9fbff);
   box-shadow: 0 4px 18px rgba(2, 6, 23, 0.04);
 }
+
+.panel-body {
+  width: 100%;
+}
+
 .brand {
   font-weight: 700;
 }
@@ -75,13 +80,16 @@ body {
   background: rgba(91, 141, 239, 0.08);
 }
 .content {
+  width: 100%;
   flex: 1;
   padding: 20px;
 }
 .tab-content {
+  width: 100%;
   display: none;
 }
 .tab-content.active {
+  width: 100%;
   display: block;
 }
 .card {
@@ -134,5 +142,4 @@ body {
 #alertsContainer .alert.danger {
   background: #fff0f0;
 }
-
 /* responsive */

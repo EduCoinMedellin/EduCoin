@@ -12,12 +12,6 @@
         const user = users.find(u => u.email === email && u.pass === pass);
 
 
-        if (!user) {
-        alert('Credenciales incorrectas');
-        return;
-        }
-
-
 if (user.role === 'estudiante') {
 window.location.href = 'estudiante.html';
 } else {

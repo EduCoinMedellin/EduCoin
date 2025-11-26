@@ -81,6 +81,10 @@ body {
   padding: 20px;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
+
+.welcome.card {
+  max-width: 750px;
+}
 .welcome {
   display: flex;
   justify-content: space-between;
@@ -174,6 +178,15 @@ body {
 .history .tx {
   padding: 10px;
   border-bottom: 1px solid rgba(15, 23, 42, 0.03);
+}
+
+.tab-content {
+  width: 100%;
+  display: none;
+}
+.tab-content.active {
+  width: 100%;
+  display: block;
 }
 
 /* responsive */
