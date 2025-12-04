@@ -2,105 +2,156 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Educoin</title>
+    <title>Educoin | Profesor</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <div class="app">
-      <aside class="sidebar">
-        <img src="assets/img/Logo-03.png" alt="Educoin Logo" class="logo-nav" />
-        <nav>
-          <button class="tab active" data-tab="emision">Emisión</button>
-          <button class="tab" data-tab="politicas">Políticas</button>
-          <button class="tab" data-tab="ledger">Libro mayor</button>
-          <button class="tab" data-tab="alertas">Alertas</button>
-          <button class="btn logout" id="logoutBtn"><a href="index.html">Cerrar sesión</a></button>
+      <!-- SIDEBAR -->
+      <!-- MOBILE TOP NAV -->
+      <header class="topnav-mobile">
+        <button class="nav-icon" data-tab="emision">
+          <img src="assets/icons/emision.svg" />
+        </button>
+        <button class="nav-icon" data-tab="politicas">
+          <img src="assets/icons/politicas.svg" />
+        </button>
+        <button class="nav-icon" data-tab="ledger">
+          <img src="assets/icons/ledger.svg" />
+        </button>
+        <button class="nav-icon" data-tab="alertas">
+          <img src="assets/icons/alertas.svg" />
+        </button>
+        <button class="nav-icon">
+          <a href="index.html">
+            <img src="assets/icons/logout.svg" />
+          </a>
+
+        </button>
+      </header>
+
+      <!-- DESKTOP SIDEBAR -->
+
+        <aside class="sidebar">
+          <img src="assets/img/Logo-03.png" class="logo-nav" />
+          <nav>
+            <button class="tab tab--active" data-tab="emision">
+              <img src="assets/icons/emision.svg" />
+            </button>
+            <button class="tab" data-tab="politicas">
+              <img src="assets/icons/politicas.svg" />
+            </button>
+            <button class="tab" data-tab="ledger">
+              <img src="assets/icons/ledger.svg" />
+            </button>
+            <button class="tab" data-tab="alertas">
+              <img src="assets/icons/alertas.svg" />
+            </button>
+            <button class="btn btn--danger" id="logoutBtn">
+              <a href="index.html">
+                <img src="assets/icons/logout.svg" />
+              </a>
+              
+            </button>
         </nav>
       </aside>
 
+      <!-- CONTENT AREA -->
       <main class="panel-body">
         <section class="content">
-          <section id="emision" class="tab-content active">
+          <!-- =============== EMISIÓN =============== -->
+          <section id="emision" class="tab-content tab-content--active">
             <h2>Emitir Educoins</h2>
-            <div class="card form">
+
+            <div class="card">
               <label>Monto a emitir</label>
               <input
                 id="emitAmountProf"
                 type="number"
-                min="1"
+                class="input"
                 placeholder="Cantidad"
               />
-              <label>Motivo</label>
+
+              <label class="mt-2">Motivo</label>
               <input
                 id="emitReason"
                 type="text"
+                class="input"
                 placeholder="Ej: Recompensa por torneo"
               />
-              <div class="row">
-                <button id="emitProfBtn" class="btn primary">Emitir</button>
-                <button id="simulateBtn" class="btn ghost">
+
+              <div class="row mt-2">
+                <button class="btn btn--primary" id="emitProfBtn">
+                  Emitir
+                </button>
+                <button class="btn btn--ghost" id="simulateBtn">
                   Simular impacto
                 </button>
               </div>
             </div>
 
-            <section class="bottom">
-              <div class="left-panel card">
+            <!-- PANEL INFERIOR -->
+            <div class="row">
+              <!-- PANEL IZQUIERDO -->
+              <div class="card" style="flex: 1">
                 <h3>Panel de operaciones</h3>
-                <div class="controls">
-                  <label>Emitir Educoins (admin)</label>
-                  <div class="row">
-                    <input
-                      id="emitAmount"
-                      type="number"
-                      min="1"
-                      placeholder="Cantidad"
-                    />
-                    <button id="emitBtn">Emitir</button>
-                  </div>
 
-                  <label>Asignar a estudiante</label>
-                  <div class="row">
-                    <select id="studentSelect"></select>
-                    <input
-                      id="assignAmount"
-                      type="number"
-                      min="1"
-                      placeholder="Cantidad"
-                    />
-                    <button id="assignBtn">Asignar</button>
-                  </div>
-
-                  <label>Catálogo</label>
-                  <div id="catalog"></div>
+                <label class="mt-1">Emitir Educoins (admin)</label>
+                <div class="row">
+                  <input
+                    id="emitAmount"
+                    type="number"
+                    class="input"
+                    placeholder="Cantidad"
+                  />
+                  <button id="emitBtn" class="btn btn--primary">Emitir</button>
                 </div>
+
+                <label class="mt-1">Asignar a estudiante</label>
+                <div class="row">
+                  <select id="studentSelect" class="input"></select>
+                  <input
+                    id="assignAmount"
+                    type="number"
+                    class="input"
+                    placeholder="Cantidad"
+                  />
+                  <button id="assignBtn" class="btn btn--primary">
+                    Asignar
+                  </button>
+                </div>
+
+                <label class="mt-2">Catálogo</label>
+                <div id="catalog"></div>
               </div>
 
-              <div class="right-panel card">
+              <!-- PANEL DERECHO -->
+              <div class="card" style="flex: 1">
                 <h3>Historial de transacciones</h3>
-                <div id="history" class="history"></div>
+                <div id="history"></div>
               </div>
-            </section>
+            </div>
 
-            <div class="card metrics">
+            <div class="card">
               <h3>Métricas rápidas</h3>
               <div class="metrics-grid">
                 <div class="metric">
-                  <div class="label">Oferta circulante</div>
+                  <div class="text-muted">Oferta circulante</div>
                   <div id="circulante">— EDU</div>
                 </div>
                 <div class="metric">
-                  <div class="label">Inflación (sim)</div>
+                  <div class="text-muted">Inflación (sim)</div>
                   <div id="inflacion">— %</div>
                 </div>
                 <div class="metric">
-                  <div class="label">Índice valor</div>
+                  <div class="text-muted">Índice valor</div>
                   <div id="idx">—</div>
                 </div>
               </div>
             </div>
           </section>
 
+          <!-- =============== POLÍTICAS =============== -->
           <section id="politicas" class="tab-content">
             <h2>Políticas de emisión</h2>
             <div class="card">
@@ -108,29 +159,29 @@
               <input
                 id="capMonthly"
                 type="number"
-                min="0"
+                class="input"
                 placeholder="ej. 1000"
               />
-              <label>Coeficiente alfa</label>
+
+              <label class="mt-2">Coeficiente alfa</label>
               <input
                 id="alpha"
                 type="number"
-                step="0.01"
-                min="0"
+                class="input"
                 placeholder="ej. 0.5"
               />
-              <div class="row">
-                <button id="savePolicy" class="btn primary">
-                  Guardar políticas
-                </button>
-              </div>
+
+              <button id="savePolicy" class="btn btn--primary mt-2">
+                Guardar políticas
+              </button>
             </div>
           </section>
 
+          <!-- =============== LEDGER =============== -->
           <section id="ledger" class="tab-content">
             <h2>Libro mayor (transacciones)</h2>
-            <div class="card ledger-card">
-              <table id="ledgerTable">
+            <div class="card">
+              <table class="ledger-table">
                 <thead>
                   <tr>
                     <th>Fecha</th>
@@ -139,21 +190,23 @@
                     <th>Monto</th>
                   </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody id="ledgerBody"></tbody>
               </table>
-              <div class="row">
-                <button id="exportCsv" class="btn">Exportar CSV</button>
-              </div>
+              <button id="exportCsv" class="btn btn--ghost mt-2">
+                Exportar CSV
+              </button>
             </div>
           </section>
 
+          <!-- =============== ALERTAS =============== -->
           <section id="alertas" class="tab-content">
             <h2>Alertas</h2>
             <div id="alertsContainer"></div>
           </section>
         </section>
       </main>
-      <script src="js/profesor.js"></script>
     </div>
+
+    <script src="js/script.js"></script>
   </body>
 </html>

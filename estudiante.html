@@ -1,31 +1,67 @@
-<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Educoin</title>
+    <title>Educoin | Estudiante</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <div class="app">
+      <!-- SIDEBAR -->
+      <!-- MOBILE TOP NAV -->
+      <header class="topnav-mobile">
+        <button class="nav-icon" data-tab="inicio">
+          <img src="assets/icons/home.svg" />
+        </button>
+        <button class="nav-icon" data-tab="balance">
+          <img src="assets/icons/wallet.svg" />
+        </button>
+        <button class="nav-icon" data-tab="institucion">
+          <img src="assets/icons/building.svg" />
+        </button>
+        <button class="nav-icon" data-tab="configuracion">
+          <img src="assets/icons/settings.svg" />
+        </button>
+        <button class="nav-icon">
+          <a href="index.html">
+            <img src="assets/icons/logout.svg" />
+          </a>
+          
+        </button>
+      </header>
+
+      <!-- DESKTOP SIDEBAR -->
       <aside class="sidebar">
-        <img src="assets/img/Logo-03.png" alt="Educoin Logo" class="logo-nav" />
+        <img src="assets/img/Logo-03.png" class="logo-nav" />
         <nav>
-          <button class="tab active" data-tab="inicio">Inicio</button>
-          <button class="tab" data-tab="Balance">Balance</button>
-          <button class="tab" data-tab="institucion">Institución</button>
-          <button class="tab" data-tab="configurar">Configurar</button>
-          <button class="btn logout" id="logoutBtn"><a href="index.html">Cerrar sesión</a></button>
+          <button class="tab tab--active" data-tab="inicio">
+            <img src="assets/icons/home.svg" />
+          </button>
+          <button class="tab" data-tab="balance">
+            <img src="assets/icons/wallet.svg" />
+          </button>
+          <button class="tab" data-tab="institucion">
+            <img src="assets/icons/building.svg" />
+          </button>
+          <button class="tab" data-tab="configuracion">
+            <img src="assets/icons/settings.svg" />
+          </button>
+          <button class="btn btn--danger" id="logoutBtn">
+            <a href="index.html">
+              <img src="assets/icons/logout.svg" />
+            </a>
+            
+          </button>
         </nav>
       </aside>
 
+      <!-- CONTENT -->
       <main class="panel-body">
         <section class="content">
-
-          <section id="inicio" class="tab-content active">
-
-            <section class="welcome card">
-              <div class="welcome-left">
+          <!-- ================= INICIO ================= -->
+          <section id="inicio" class="tab-content tab-content--active">
+            <div class="card welcome">
+              <div>
                 <h1>¡Hola, Gustavo!</h1>
                 <p>¿Qué quieres hacer hoy?</p>
                 <div class="quicklinks">
@@ -33,55 +69,78 @@
                   <a href="#">Recompensas</a>
                 </div>
               </div>
-              <div class="mascot">
-                <img src="assets/Edu/book.png" alt="Educoin Mascot" />
-              </div>
-            </section>
+              <img
+                src="assets/Edu/book.png"
+                alt="Mascota"
+                style="height: 120px"
+              />
+            </div>
 
-            <section class="cards-grid">
-              <div class="small-card">
-                <div class="label">Saldo actual</div>
-                <div class="value" id="balance">0 EDC</div>
+            <div class="grid-3">
+              <div class="card card--small">
+                <div class="text-muted">Saldo actual</div>
+                <div id="balance" style="font-size: 20px; font-weight: 700">
+                  0 EDC
+                </div>
               </div>
-              <div class="small-card">
-                <div class="label">Moneda emitida</div>
-                <div class="value" id="valueIndex">100</div>
-              </div>
-              <div class="small-card">
-                <div class="label">Recompensas</div>
-                <div class="value" id="rewardsCount">—</div>
-              </div>
-            </section>
 
-            <section class="recent-activities card">
+              <div class="card card--small">
+                <div class="text-muted">Moneda emitida</div>
+                <div id="valueIndex" style="font-size: 20px; font-weight: 700">
+                  100
+                </div>
+              </div>
+
+              <div class="card card--small">
+                <div class="text-muted">Recompensas</div>
+                <div
+                  id="rewardsCount"
+                  style="font-size: 20px; font-weight: 700"
+                >
+                  —
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
               <h2>Actividades recientes</h2>
-              <ul id="recentActivitiesList">
-              <li>No hay actividades recientes.</li>
+              <ul id="recentActivitiesList" style="margin-top: 10px">
+                <li>No hay actividades recientes.</li>
               </ul>
-            </section>
-
+            </div>
           </section>
 
-          <section id="Balance" class="tab-content">
-            <section class="balance-overview card">
+          <!-- ================= BALANCE ================= -->
+          <section id="balance" class="tab-content">
+            <div class="card">
               <h2>Tu Balance de Educoins</h2>
-              <div class="balance-amount" id="detailedBalance" style="padding: 20px;">0 EDC</div>
-              <div class="balance-actions">
-                <button id="viewTransactionsBtn" class="btn primary">Ver transacciones</button>
-                <button id="redeemRewardsBtn" class="btn ghost">Canjear recompensas</button>
+              <div
+                id="detailedBalance"
+                style="font-size: 22px; font-weight: 700; margin: 20px 0"
+              >
+                0 EDC
               </div>
-          </section>
-        
-          <section id="institucion" class="tab-content">
-            
+
+              <div class="row">
+                <button class="btn btn--primary" id="viewTransactions">
+                  Ver transacciones
+                </button>
+                <button class="btn btn--ghost" id="redeemRewards">
+                  Canjear recompensas
+                </button>
+              </div>
+            </div>
           </section>
 
-          <section id="configurar" class="tab-content">
-          </section>
+          <!-- ================= INSTITUCIÓN ================= -->
+          <section id="institucion" class="tab-content"></section>
 
+          <!-- ================= CONFIGURAR ================= -->
+          <section id="configuracion" class="tab-content"></section>
         </section>
       </main>
-      <script src="js/profesor.js"></script>
     </div>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
