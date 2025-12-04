@@ -11,164 +11,77 @@
       <aside class="sidebar">
         <img src="assets/img/Logo-03.png" alt="Educoin Logo" class="logo-nav" />
         <nav>
-          <button class="tab active">🏠</button>
-          <button class="tab">📊</button>
-          <button class="tab">🏪</button>
-          <button class="tab">⚙️</button>
+          <button class="tab active" data-tab="inicio">Inicio</button>
+          <button class="tab" data-tab="Balance">Balance</button>
+          <button class="tab" data-tab="institucion">Institución</button>
+          <button class="tab" data-tab="configurar">Configurar</button>
+          <button class="btn logout" id="logoutBtn"><a href="index.html">Cerrar sesión</a></button>
         </nav>
       </aside>
 
-      <main class="main">
-        <header class="topbar">
-          <div class="search"><input placeholder="Buscar..." /></div>
-          <div class="top-actions">
-            <div class="date">3 de Agosto, 2021</div>
-            <div class="profile">Sophia ▾</div>
-          </div>
-        </header>
+      <main class="panel-body">
+        <section class="content">
 
-        <section class="panel-body">
-          <section class="content">
-        <section id="home" class="tab-content active">
+          <section id="inicio" class="tab-content active">
 
-        <section class="welcome card">
-          <div class="welcome-left">
-            <h1>¡Hola, George!</h1>
-            <p>¿Qué quieres hacer hoy?</p>
-            <div class="quicklinks">
-              <a href="#">Ver saldo</a>
-              <a href="#">Recompensas</a>
-              <a href="#">Emitir</a>
-            </div>
-          </div>
-          <div class="mascot">
-            <img src="assets/Edu/book.png" alt="Educoin Mascot" />
-          </div>
-        </section>
+            <section class="welcome card">
+              <div class="welcome-left">
+                <h1>¡Hola, Gustavo!</h1>
+                <p>¿Qué quieres hacer hoy?</p>
+                <div class="quicklinks">
+                  <a href="#">Ver saldo</a>
+                  <a href="#">Recompensas</a>
+                </div>
+              </div>
+              <div class="mascot">
+                <img src="assets/Edu/book.png" alt="Educoin Mascot" />
+              </div>
+            </section>
 
-        <section class="cards-grid">
-          <div class="small-card">
-            <div class="label">Saldo actual</div>
-            <div class="value" id="balance">— EDU</div>
-          </div>
-          <div class="small-card">
-            <div class="label">Valor de 1 EDU</div>
-            <div class="value" id="valueIndex">—</div>
-          </div>
-          <div class="small-card">
-            <div class="label">Recompensas</div>
-            <div class="value" id="rewardsCount">—</div>
-          </div>
-          <div class="small-card">
-            <div class="label">Transacciones</div>
-            <div class="value" id="txCount">—</div>
-          </div>
-        </section>
-
-          </section>
-
-        <section id="dashboard" class="tab-content">
-    
             <section class="cards-grid">
               <div class="small-card">
-                <div class="label">Valor de 1 EDU</div>
-                <div class="value" id="valueIndex">—</div>
+                <div class="label">Saldo actual</div>
+                <div class="value" id="balance">0 EDC</div>
+              </div>
+              <div class="small-card">
+                <div class="label">Moneda emitida</div>
+                <div class="value" id="valueIndex">100</div>
               </div>
               <div class="small-card">
                 <div class="label">Recompensas</div>
                 <div class="value" id="rewardsCount">—</div>
               </div>
-              <div class="small-card">
-                <div class="label">Transacciones</div>
-                <div class="value" id="txCount">—</div>
-              </div>
             </section>
-    
-              </section>
 
-        <section id="store" class="tab-content">
+            <section class="recent-activities card">
+              <h2>Actividades recientes</h2>
+              <ul id="recentActivitiesList">
+              <li>No hay actividades recientes.</li>
+              </ul>
+            </section>
 
-                <section class="welcome card">
-                  <div class="welcome-left">
-                    <h1>¡Hola, George!</h1>
-                    <p>¿Qué quieres hacer hoy?</p>
-                    <div class="quicklinks">
-                      <a href="#">Ver saldo</a>
-                      <a href="#">Recompensas</a>
-                      <a href="#">Emitir</a>
-                    </div>
-                  </div>
-                  <div class="mascot">
-                    <img src="assets/Edu/book.png" alt="Educoin Mascot" />
-                  </div>
-                </section>
+          </section>
+
+          <section id="Balance" class="tab-content">
+            <section class="balance-overview card">
+              <h2>Tu Balance de Educoins</h2>
+              <div class="balance-amount" id="detailedBalance" style="padding: 20px;">0 EDC</div>
+              <div class="balance-actions">
+                <button id="viewTransactionsBtn" class="btn primary">Ver transacciones</button>
+                <button id="redeemRewardsBtn" class="btn ghost">Canjear recompensas</button>
+              </div>
+          </section>
         
-                <section class="cards-grid">
-                  <div class="small-card">
-                    <div class="label">Saldo actual</div>
-                    <div class="value" id="balance">— EDU</div>
-                  </div>
-                  <div class="small-card">
-                    <div class="label">Valor de 1 EDU</div>
-                    <div class="value" id="valueIndex">—</div>
-                  </div>
-                  <div class="small-card">
-                    <div class="label">Recompensas</div>
-                    <div class="value" id="rewardsCount">—</div>
-                  </div>
-                  <div class="small-card">
-                    <div class="label">Transacciones</div>
-                    <div class="value" id="txCount">—</div>
-                  </div>
-                </section>
-        
-                  </section>
-
-        <section id="settings" class="tab-content">
-
-                    <section class="welcome card">
-                      <div class="welcome-left">
-                        <h1>¡Hola, George!</h1>
-                        <p>¿Qué quieres hacer hoy?</p>
-                        <div class="quicklinks">
-                          <a href="#">Ver saldo</a>
-                          <a href="#">Recompensas</a>
-                          <a href="#">Emitir</a>
-                        </div>
-                      </div>
-                      <div class="mascot">
-                        <img src="assets/Edu/book.png" alt="Educoin Mascot" />
-                      </div>
-                    </section>
+          <section id="institucion" class="tab-content">
             
-                    <section class="cards-grid">
-                      <div class="small-card">
-                        <div class="label">Saldo actual</div>
-                        <div class="value" id="balance">— EDU</div>
-                      </div>
-                      <div class="small-card">
-                        <div class="label">Valor de 1 EDU</div>
-                        <div class="value" id="valueIndex">—</div>
-                      </div>
-                      <div class="small-card">
-                        <div class="label">Recompensas</div>
-                        <div class="value" id="rewardsCount">—</div>
-                      </div>
-                      <div class="small-card">
-                        <div class="label">Transacciones</div>
-                        <div class="value" id="txCount">—</div>
-                      </div>
-                    </section>
-            
-                      </section>
+          </section>
+
+          <section id="configurar" class="tab-content">
+          </section>
 
         </section>
-      </section>
-      </section>
       </main>
+      <script src="js/profesor.js"></script>
     </div>
-
-    <script src="js/app.js"></script>
-    <script src="js/profesor.js"></script>
   </body>
 </html>
