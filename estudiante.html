@@ -26,7 +26,6 @@
           <a href="index.html">
             <img src="assets/icons/logout.svg" />
           </a>
-          
         </button>
       </header>
 
@@ -50,7 +49,6 @@
             <a href="index.html">
               <img src="assets/icons/logout.svg" />
             </a>
-            
           </button>
         </nav>
       </aside>
@@ -79,7 +77,7 @@
             <div class="grid-3">
               <div class="card card--small">
                 <div class="text-muted">Saldo actual</div>
-                <div id="balance" style="font-size: 20px; font-weight: 700">
+                <div id="currentBalance" style="font-size: 20px; font-weight: 700">
                   0 EDC
                 </div>
               </div>
@@ -87,7 +85,7 @@
               <div class="card card--small">
                 <div class="text-muted">Moneda emitida</div>
                 <div id="valueIndex" style="font-size: 20px; font-weight: 700">
-                  100
+                  -
                 </div>
               </div>
 
@@ -109,34 +107,192 @@
               </ul>
             </div>
           </section>
-
           <!-- ================= BALANCE ================= -->
+
           <section id="balance" class="tab-content">
+
             <div class="card">
               <h2>Tu Balance de Educoins</h2>
-              <div
-                id="detailedBalance"
-                style="font-size: 22px; font-weight: 700; margin: 20px 0"
-              >
+              <div id="detailedBalance" style="font-size: 32px; font-weight: 700; margin: 20px 0; color: var(--accent);">
                 0 EDC
               </div>
 
-              <div class="row">
+              <div class="text-muted">Equivalente a: $0 COP (valor estimado)</div>
+
+              <div class="grid-3 mt-2">
+                <div class="card card--small">
+                  <div class="text-muted">Ganado este mes</div>
+                  <div style="font-size: 18px; font-weight: 700; color: green">+0 EDC</div>
+                </div>
+                <div class="card card--small">
+                  <div class="text-muted">Canjeado</div>
+                  <div style="font-size: 18px; font-weight: 700; color: var(--accent-danger)">-0 EDC</div>
+                </div>
+                <div class="card card--small">
+                  <div class="text-muted">Valor por EDC</div>
+                  <div style="font-size: 18px; font-weight: 700">0.95</div>
+                </div>
+              </div>
+
+              <div class="row mt-2">
                 <button class="btn btn--primary" id="viewTransactions">
                   Ver transacciones
                 </button>
                 <button class="btn btn--ghost" id="redeemRewards">
                   Canjear recompensas
                 </button>
+                <button class="btn btn--ghost" id="transferBtn">
+                  Transferir a otro estudiante
+                </button>
+              </div>
+
+            </div>
+
+            <div class="card">
+              <h3>Últimas transacciones</h3>
+              <table class="ledger-table">
+                <thead>
+                  <tr>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Monto</th>
+                    <th>Saldo</th>
+                  </tr>
+                </thead>
+                <tbody id="studentTransactions">
+                  <tr>
+                    <td colspan="4" class="text-center text-muted">No hay transacciones aún</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </section>
+          <!-- ================= INSTITUCIÓN ================= -->
+          <section id="institucion" class="tab-content">
+            <div class="card welcome">
+              <div>
+                <h1>Institución Educativa</h1>
+                <p>Colegio Modelo de Innovación</p>
+                <div class="text-muted">Código: EDU-2024-001</div>
+              </div>
+              <img
+                src="assets/Edu/school.png"
+                alt="Institución"
+                style="height: 100px"
+              />
+            </div>
+
+            <div class="grid-3">
+              <div class="card card--small">
+                <div class="text-muted">Estudiantes activos</div>
+                <div style="font-size: 20px; font-weight: 700">142</div>
+              </div>
+
+              <div class="card card--small">
+                <div class="text-muted">Profesores</div>
+                <div style="font-size: 20px; font-weight: 700">8</div>
+              </div>
+
+              <div class="card card--small">
+                <div class="text-muted">Valor EDC</div>
+                <div style="font-size: 20px; font-weight: 700">0.95</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h2>Información de contacto</h2>
+              <div class="row" style="gap: 20px; flex-wrap: wrap">
+                <div>
+                  <strong>Dirección:</strong><br />
+                  <span class="text-muted">Calle 123 #45-67, Medellín</span>
+                </div>
+                <div>
+                  <strong>Teléfono:</strong><br />
+                  <span class="text-muted">(604) 123-4567</span>
+                </div>
+                <div>
+                  <strong>Email:</strong><br />
+                  <span class="text-muted">info@colegiomodelo.edu.co</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h2>Calendario académico</h2>
+              <div id="calendarEvents">
+                <div class="alert">
+                  <strong>📅 15 Nov:</strong> Entrega de proyectos finales
+                </div>
+                <div class="alert">
+                  <strong>📅 20 Nov:</strong> Olimpiadas matemáticas (+50 EDC
+                  para ganadores)
+                </div>
+                <div class="alert">
+                  <strong>📅 25 Nov:</strong> Feria de ciencias
+                </div>
               </div>
             </div>
           </section>
-
-          <!-- ================= INSTITUCIÓN ================= -->
-          <section id="institucion" class="tab-content"></section>
-
           <!-- ================= CONFIGURAR ================= -->
-          <section id="configuracion" class="tab-content"></section>
+          <section id="configuracion" class="tab-content">
+            <div class="card">
+              <h2>Configuración de cuenta</h2>
+              
+              <div class="row" style="align-items: center; margin-bottom: 20px;">
+                <svg width="64px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <path id="user-a" d="M6,0 L10,0 C10,1.1045695 9.1045695,2 8,2 C6.8954305,2 6,1.1045695 6,0 Z M16,13.4537699 C13.3119196,14.48459 10.6263029,15 7.94314973,15 C5.2599966,15 2.61228002,14.48459 0,13.4537699 C0.534574606,9.15125664 3.18229118,7 7.94314973,7 C12.7040083,7 15.389625,9.15125664 16,13.4537699 Z"></path> <path id="user-c" d="M9,10 C6.23857625,10 4,7.76142375 4,5 C4,2.23857625 6.23857625,0 9,0 C11.7614237,0 14,2.23857625 14,5 C14,7.76142375 11.7614237,10 9,10 Z M9,8 C10.6568542,8 12,6.65685425 12,5 C12,3.34314575 10.6568542,2 9,2 C7.34314575,2 6,3.34314575 6,5 C6,6.65685425 7.34314575,8 9,8 Z M1.99975067,20.0223292 C1.98741862,20.5744762 1.52981788,21.0120827 0.977670834,20.9997507 C0.425523784,20.9874186 -0.0120827307,20.5298179 0.000249326899,19.9776708 C0.145759691,13.46269 3.22368513,11 8.99994472,11 C15.0478478,11 18.1410179,13.4818866 17.9949389,20.0223292 C17.9826068,20.5744762 17.5250061,21.0120827 16.972859,20.9997507 C16.420712,20.9874186 15.9831055,20.5298179 15.9954375,19.9776708 C16.1173753,14.5181134 13.8803831,13 8.99994472,13 C4.37762816,13 2.12225712,14.53731 1.99975067,20.0223292 Z"></path> </defs> <g fill="none" fill-rule="evenodd" transform="translate(3 1)"> <g transform="translate(1 5)"> <mask id="user-b" fill="#ffffff"> <use xlink:href="#user-a"></use> </mask> <use fill="#D8D8D8" xlink:href="#user-a"></use> <g fill="#ffeb85" mask="url(#user-b)"> <rect width="24" height="24" transform="translate(-4 -6)"></rect> </g> </g> <mask id="user-d" fill="#ffffff"> <use xlink:href="#user-c"></use> </mask> <use fill="#000000" fill-rule="nonzero" xlink:href="#user-c"></use> <g fill="#3b3561" mask="url(#user-d)"> <rect width="24" height="24" transform="translate(-3 -1)"></rect> </g> </g> </g></svg>
+                <div style="margin-left: 15px;">
+                  <h3 style="margin: 0">Gustavo Rodríguez</h3>
+                  <div class="text-muted">Estudiante · Grado 10°A</div>
+                </div>
+              </div>
+
+              <label>Nombre completo</label>
+              <input type="text" class="input" value="Gustavo Rodríguez" />
+
+              <label class="mt-2">Correo electrónico</label>
+              <input type="email" class="input" value="gustavo.rodriguez@colegio.edu" />
+
+              <label class="mt-2">Contraseña</label>
+              <input type="password" class="input" placeholder="••••••••" />
+              
+              <button class="btn btn--primary mt-2">Guardar cambios</button>
+            </div>
+
+            <div class="card">
+              <h3>Preferencias</h3>
+              
+              <div class="row" style="align-items: center; margin-bottom: 10px;">
+                <input type="checkbox" id="notifications" checked />
+                <label for="notifications" style="margin: 0 0 0 10px;">Notificaciones por email</label>
+              </div>
+              
+              <div class="row" style="align-items: center; margin-bottom: 10px;">
+                <input type="checkbox" id="darkMode" />
+                <label for="darkMode" style="margin: 0 0 0 10px;">Modo oscuro</label>
+              </div>
+              
+              <div class="row" style="align-items: center; margin-bottom: 10px;">
+                <input type="checkbox" id="autoLogin" checked />
+                <label for="autoLogin" style="margin: 0 0 0 10px;">Inicio de sesión automático</label>
+              </div>
+              
+              <div class="mt-2">
+                <label>Idioma</label>
+                <select class="input">
+                  <option>Español</option>
+                  <option>English</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Privacidad y seguridad</h3>
+              <button class="btn btn--ghost">Ver historial de sesiones</button>
+              <button class="btn btn--ghost mt-1">Descargar mis datos</button>
+              <button class="btn btn--danger mt-2">Eliminar cuenta</button>
+            </div>
+          </section>
         </section>
       </main>
     </div>

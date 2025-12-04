@@ -310,6 +310,53 @@ label {
   border-radius: 12px;
 }
 
+
+.card--small {
+  transition: transform 0.2s ease;
+}
+.card--small:hover {
+  transform: translateY(-2px);
+}
+
+/* Botones pequeños */
+.btn--small {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+/* Separadores */
+.divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+/* Etiquetas */
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.tag--success {
+  background: #d1fae5;
+  color: #065f46;
+}
+.tag--warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+.tag--info {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.ledger-table tr:hover {
+  background: rgba(59, 53, 97, 0.05);
+}
+
+
 /* =============================== */
 /* RESPONSIVE BEHAVIOR */
 /* =============================== */

@@ -26,33 +26,31 @@
           <a href="index.html">
             <img src="assets/icons/logout.svg" />
           </a>
-
         </button>
       </header>
 
       <!-- DESKTOP SIDEBAR -->
 
-        <aside class="sidebar">
-          <img src="assets/img/Logo-03.png" class="logo-nav" />
-          <nav>
-            <button class="tab tab--active" data-tab="emision">
-              <img src="assets/icons/emision.svg" />
-            </button>
-            <button class="tab" data-tab="politicas">
-              <img src="assets/icons/politicas.svg" />
-            </button>
-            <button class="tab" data-tab="ledger">
-              <img src="assets/icons/ledger.svg" />
-            </button>
-            <button class="tab" data-tab="alertas">
-              <img src="assets/icons/alertas.svg" />
-            </button>
-            <button class="btn btn--danger" id="logoutBtn">
-              <a href="index.html">
-                <img src="assets/icons/logout.svg" />
-              </a>
-              
-            </button>
+      <aside class="sidebar">
+        <img src="assets/img/Logo-03.png" class="logo-nav" />
+        <nav>
+          <button class="tab tab--active" data-tab="emision">
+            <img src="assets/icons/emision.svg" />
+          </button>
+          <button class="tab" data-tab="politicas">
+            <img src="assets/icons/politicas.svg" />
+          </button>
+          <button class="tab" data-tab="ledger">
+            <img src="assets/icons/ledger.svg" />
+          </button>
+          <button class="tab" data-tab="alertas">
+            <img src="assets/icons/alertas.svg" />
+          </button>
+          <button class="btn btn--danger" id="logoutBtn">
+            <a href="index.html">
+              <img src="assets/icons/logout.svg" />
+            </a>
+          </button>
         </nav>
       </aside>
 
@@ -125,6 +123,42 @@
                 <div id="catalog"></div>
               </div>
 
+              <div class="card" style="margin-top: 20px">
+                <h3>Recompensas disponibles</h3>
+                <div class="row" style="flex-wrap: wrap; gap: 10px">
+                  <div
+                    class="card card--small"
+                    style="flex: 1; min-width: 150px"
+                  >
+                    <div style="font-weight: 600">Día libre</div>
+                    <div class="text-muted">500 EDC</div>
+                    <button class="btn btn--ghost btn--small mt-1">
+                      Asignar
+                    </button>
+                  </div>
+                  <div
+                    class="card card--small"
+                    style="flex: 1; min-width: 150px"
+                  >
+                    <div style="font-weight: 600">Bonificación nota</div>
+                    <div class="text-muted">300 EDC</div>
+                    <button class="btn btn--ghost btn--small mt-1">
+                      Asignar
+                    </button>
+                  </div>
+                  <div
+                    class="card card--small"
+                    style="flex: 1; min-width: 150px"
+                  >
+                    <div style="font-weight: 600">Material escolar</div>
+                    <div class="text-muted">200 EDC</div>
+                    <button class="btn btn--ghost btn--small mt-1">
+                      Asignar
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               <!-- PANEL DERECHO -->
               <div class="card" style="flex: 1">
                 <h3>Historial de transacciones</h3>
@@ -154,26 +188,87 @@
           <!-- =============== POLÍTICAS =============== -->
           <section id="politicas" class="tab-content">
             <h2>Políticas de emisión</h2>
+
             <div class="card">
-              <label>Tope mensual</label>
-              <input
-                id="capMonthly"
-                type="number"
-                class="input"
-                placeholder="ej. 1000"
-              />
+              <h3>Configuración de políticas monetarias</h3>
 
-              <label class="mt-2">Coeficiente alfa</label>
-              <input
-                id="alpha"
-                type="number"
-                class="input"
-                placeholder="ej. 0.5"
-              />
+              <div class="row">
+                <div style="flex: 1">
+                  <label>Tope mensual de emisión</label>
+                  <input
+                    id="capMonthly"
+                    type="number"
+                    class="input"
+                    placeholder="ej. 1000"
+                    value="1000"
+                  />
+                  <small class="text-muted"
+                    >Límite máximo de Educoins que se pueden emitir por
+                    mes.</small
+                  >
+                </div>
 
-              <button id="savePolicy" class="btn btn--primary mt-2">
-                Guardar políticas
-              </button>
+                <div style="flex: 1">
+                  <label>Coeficiente alfa (α)</label>
+                  <input
+                    id="alpha"
+                    type="number"
+                    step="0.1"
+                    class="input"
+                    placeholder="ej. 0.5"
+                    value="0.5"
+                  />
+                  <small class="text-muted"
+                    >Ajusta la sensibilidad del valor a la emisión. Mayor α =
+                    más inflación.</small
+                  >
+                </div>
+              </div>
+
+              <div class="mt-2">
+                <label>Suministro inicial (S₀)</label>
+                <input
+                  id="initialSupply"
+                  type="number"
+                  class="input"
+                  placeholder="ej. 100000"
+                  value="100000"
+                />
+                <small class="text-muted"
+                  >Cantidad base para calcular el índice de valor.</small
+                >
+              </div>
+
+              <div class="row mt-2">
+                <button id="savePolicy" class="btn btn--primary">
+                  Guardar políticas
+                </button>
+                <button id="resetPolicy" class="btn btn--ghost">
+                  Restablecer valores predeterminados
+                </button>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Explicación de políticas</h3>
+              <div class="alert alert--warn">
+                <strong>Fórmula del valor:</strong> Índice = 1 / (1 + α × ((Sₜ -
+                S₀) / S₀))
+              </div>
+              <ul>
+                <li>
+                  <strong>Tope mensual:</strong> Controla la inflación limitando
+                  la emisión.
+                </li>
+                <li>
+                  <strong>Coeficiente α:</strong> Determina cuánto afecta la
+                  emisión al valor de la moneda.
+                </li>
+                <li>
+                  <strong>Suministro inicial:</strong> Punto de referencia para
+                  calcular cambios de valor.
+                </li>
+              </ul>
             </div>
           </section>
 
@@ -200,8 +295,69 @@
 
           <!-- =============== ALERTAS =============== -->
           <section id="alertas" class="tab-content">
-            <h2>Alertas</h2>
-            <div id="alertsContainer"></div>
+            <h2>Alertas del sistema</h2>
+
+            <div class="card">
+              <div
+                class="row"
+                style="justify-content: space-between; align-items: center"
+              >
+                <h3 style="margin: 0">Alertas activas</h3>
+                <button class="btn btn--ghost" id="markAllRead">
+                  Marcar todas como leídas
+                </button>
+              </div>
+
+              <div id="alertsContainer" class="mt-2">
+                <!-- Las alertas se generarán dinámicamente -->
+                <div class="alert alert--warn">
+                  <strong>⚠️ Inflación elevada:</strong> La emisión del mes
+                  actual alcanzó el 85% del tope.
+                  <small class="text-muted">Hace 2 horas</small>
+                </div>
+
+                <div class="alert alert--danger">
+                  <strong>🚨 Asignación inusual:</strong> Se detectó una
+                  asignación de 500 EDC a un solo estudiante.
+                  <small class="text-muted">Ayer, 15:30</small>
+                </div>
+
+                <div class="alert">
+                  <strong>📊 Reporte semanal listo:</strong> Genera el informe
+                  de actividad de la semana.
+                  <small class="text-muted">Hace 3 días</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Configurar notificaciones</h3>
+
+              <div class="row" style="align-items: center; margin-bottom: 10px">
+                <input type="checkbox" id="notifInflation" checked />
+                <label for="notifInflation" style="margin: 0 0 0 10px"
+                  >Alertas de inflación</label
+                >
+              </div>
+
+              <div class="row" style="align-items: center; margin-bottom: 10px">
+                <input type="checkbox" id="notifLargeTx" checked />
+                <label for="notifLargeTx" style="margin: 0 0 0 10px"
+                  >Transacciones grandes</label
+                >
+              </div>
+
+              <div class="row" style="align-items: center; margin-bottom: 10px">
+                <input type="checkbox" id="notifMonthly" />
+                <label for="notifMonthly" style="margin: 0 0 0 10px"
+                  >Reportes mensuales</label
+                >
+              </div>
+
+              <button class="btn btn--primary mt-1">
+                Guardar preferencias
+              </button>
+            </div>
           </section>
         </section>
       </main>
