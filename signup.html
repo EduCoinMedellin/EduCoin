@@ -3,34 +3,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Educoin — Registro</title>
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="login-container">
-      <div class="login-card">
+    <div
+      class="app login-page"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      "
+    >
+      <div 
+        class="card"
+        style="width: 360px; text-align: center; box-shadow: var(--shadow-lg)"
+      >
         <img
           src="assets/img/Logo_Mesa de trabajo 1.png"
           alt="Educoin Logo"
-          class="logo"
+          style="height: 100px; margin: auto"
         />
-        <p class="subtitle">Regístrate para usar Educoin</p>
 
-        <label>Nombre</label>
-        <input id="name" type="text" placeholder="Tu nombre" />
+        <p class="text-muted" style="color: var(--muted); margin-bottom: 20px">
+          Regístrate para usar Educoin
+        </p>
 
-        <label>Correo</label>
-        <input id="email" type="email" placeholder="tucorreo@ejemplo.com" />
+        <label for="name">Nombre</label>
+        <input 
+          id="name"
+          type="text"
+          class="input" 
+          placeholder="Tu nombre" />
 
-        <label>Contraseña</label>
-        <input id="password" type="password" placeholder="********" />
+        <label for="email">Correo</label>
+        <input
+          id="email"
+          type="email"
+          class="input"
+          placeholder="tucorreo@ejemplo.com"
+        />
 
-        <label>Rol</label>
-        <select id="role">
+         <label for="password" class="mt-2">Contraseña</label>
+        <input
+          id="password"
+          type="password"
+          class="input"
+          placeholder="********"
+        />
+
+        <label for="role" class="mt-2">Rol</label>
+        <select id="role" class="input">
           <option value="estudiante">Estudiante</option>
           <option value="profesor">Profesor</option>
         </select>
 
-        <button id="signupBtn" class="btn-login">Crear cuenta</button>
+        <button id="loginBtn" class="btn btn--primary mt-2" style="width: 100%">
+          Crear cuenta
+        </button>
+        
         <p style="margin-top: 12px; font-size: 14px">
           ¿Ya tienes cuenta?
           <a href="index.html" style="color: #3b3561">Inicia sesión</a>
